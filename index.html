@@ -1192,7 +1192,6 @@
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-            mobileMenuBtn.setAttribute('aria-expanded', navLinks.classList.contains('active') ? 'true' : 'false');
         });
         
         // Close menu when clicking a link
@@ -1200,7 +1199,6 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.textContent = '☰';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
         
@@ -1209,7 +1207,6 @@
             if (!e.target.closest('nav')) {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.textContent = '☰';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         });
     </script>
