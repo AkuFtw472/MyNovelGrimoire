@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./github-upload/assets/icon.png" width="100" alt="NovelGrimoire Logo">
+  <img src="./assets/icon.png" width="100" alt="NovelGrimoire Logo">
 </p>
 
 <h1 align="center">NovelGrimoire</h1>
@@ -9,19 +9,19 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/akuftw/NovelGrimoire/releases/tag/v1.1">
-    <img src="https://img.shields.io/github/v/release/akuftw/NovelGrimoire?style=for-the-badge&color=blue" alt="Latest Release">
+  <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1">
+    <img src="https://img.shields.io/github/v/release/AkuFtw472/MyNovelGrimoire?style=for-the-badge&color=blue" alt="Latest Release">
   </a>
-  <a href="https://github.com/akuftw/NovelGrimoire/releases">
-    <img src="https://img.shields.io/github/downloads/akuftw/NovelGrimoire/total?style=for-the-badge&color=green" alt="Downloads">
+  <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases">
+    <img src="https://img.shields.io/github/downloads/AkuFtw472/MyNovelGrimoire/total?style=for-the-badge&color=green" alt="Downloads">
   </a>
   <img src="https://img.shields.io/badge/Android-5.0+-brightgreen?style=for-the-badge&logo=android" alt="Android">
   <img src="https://img.shields.io/badge/License-Free-orange?style=for-the-badge" alt="License">
 </p>
 
 <p align="center">
-  <a href="https://github.com/akuftw/NovelGrimoire/releases/tag/v1.1">
-    <img src="https://img.shields.io/badge/⬇️_Download_APK-v1.1-blue?style=for-the-badge&logoColor=white" alt="Download">
+  <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1">
+    <img src="https://img.shields.io/badge/⬇️_Download_APK-Latest-blue?style=for-the-badge&logoColor=white" alt="Download">
   </a>
   <a href="https://ko-fi.com/akuftw">
     <img src="https://img.shields.io/badge/☕_Support_the_Dev-Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Support on Ko-fi">
@@ -29,6 +29,14 @@
 </p>
 
 ---
+
+## Release v1.1
+
+- Download: https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1
+- Highlights:
+  - Multiple novel sources
+  - Custom reader (fonts, colors, themes)
+  - Offline reading + Text-to-Speech
 
 ## ✨ Features
 
@@ -46,44 +54,53 @@
 
 ---
 
-## 📞 Support & Community
-
-- 💬 **Discord:** aku.ftw
-- ☕ **Ko-fi:** [Support the Developer](https://ko-fi.com/akuftw)
-- 🐛 **Bug Reports:** [Open an Issue](https://github.com/akuftw/NovelGrimoire/issues)
-- 💡 **Feature Requests:** [Discussions](https://github.com/akuftw/NovelGrimoire/discussions)
-
----
-
 ## 📱 Screenshots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot1.jpg" width="180">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot2.jpg" width="180">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot3.jpg" width="180">
+  <img src="./assets/screenshot1.jpg" width="180">
+  <img src="./assets/screenshot2.jpg" width="180">
+  <img src="./assets/screenshot3.jpg" width="180">
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot4.jpg" width="180">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot5.jpg" width="180">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot6.jpg" width="180">
+  <img src="./assets/screenshot4.jpg" width="180">
+  <img src="./assets/screenshot5.jpg" width="180">
+  <img src="./assets/screenshot6.jpg" width="180">
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot7.jpg" width="180">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot9.jpg" width="180">
-  <img src="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/assets/screenshot10.jpg" width="180">
+  <img src="./assets/screenshot7.jpg" width="180">
+  <img src="./assets/screenshot9.jpg" width="180">
+  <img src="./assets/screenshot10.jpg" width="180">
 </p>
 
 ---
-
 
 ## 📦 Installation
 
 ### Method 1: Direct Download
-1. Download the APK from [**Releases (v1.1)**](https://github.com/akuftw/NovelGrimoire/releases/tag/v1.1)
+1. Download the latest APK from [**Releases**](https://github.com/akuftw/NovelGrimoire/releases/latest)
+1. Download the latest APK from [**Releases**](https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1)
 2. Enable "Install from unknown sources" in your device settings
 3. Open the downloaded APK and install
-4. If Google Play Protect shows a warning, tap **"More details"** → **"Install anyway"** or just tap **"scan the app"**
-5. Enjoy reading!
+4. If Google Play Protect shows a warning, tap **"More details"** → **"Install anyway"** (the app is safe, just not from Play Store) or just tap **"scan the app"**
+5. Enjoy reading! 📚
+
+### Method 2: Auto-Update
+The app includes automatic update checking. You'll be notified when a new version is available.
+
+---
+
+## 📚 Supported Sources
+
+| Source | Language | Status |
+|--------|----------|--------|
+| Royal Road | English | ✅ Working |
+| NovelBin | English | ✅ Working |
+| LibRead | English | ✅ Working |
+| FreeWebNovel | English | ✅ Working |
+| ScribbleHub | English | ✅ Working |
+| ReadNovelFull | English | ✅ Working |
+| Miracle Novel | Arabic | ✅ Working |
+| + More... | Various | ✅ Working |
 
 ---
 
@@ -92,6 +109,15 @@
 - **Android Version:** 5.0 (Lollipop) or higher
 - **Storage:** ~50MB for app + space for downloads
 - **Internet:** Required for browsing (offline reading available)
+
+---
+
+## 📞 Support & Community
+
+- 💬 **Discord:** aku.ftw
+- ☕ **Ko-fi:** [Support the Developer](https://ko-fi.com/akuftw)
+- 🐛 **Bug Reports:** [Open an Issue](https://github.com/AkuFtw472/MyNovelGrimoire/issues)
+- 💡 **Feature Requests:** [Discussions](https://github.com/AkuFtw472/MyNovelGrimoire/discussions)
 
 ---
 
