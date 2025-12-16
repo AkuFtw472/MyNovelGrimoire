@@ -53,6 +53,10 @@
             background: var(--dark);
             overflow-x: hidden;
         }
+
+        a {
+            overflow-wrap: anywhere;
+        }
         
         /* Animated Background */
         .bg-animation {
@@ -323,6 +327,22 @@
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 30px;
             line-height: 1.8;
+        }
+
+        .platform-note {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 1em;
+            margin-top: -10px;
+            margin-bottom: 24px;
+            line-height: 1.65;
+        }
+
+        .platform-note a {
+            color: rgba(255, 255, 255, 0.92);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.35);
+            text-underline-offset: 4px;
         }
         
         .hero-buttons {
@@ -1023,6 +1043,65 @@
                 display: none;
             }
         }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 14px 0;
+            }
+
+            .nav-logo {
+                font-size: 1.15em;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 110px 0 70px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 20px;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 20px;
+            }
+
+            .download-btn .text {
+                text-align: center;
+            }
+
+            .phone-mockup {
+                width: 240px;
+                height: 500px;
+            }
+
+            .version-info {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                padding: 14px 18px;
+                border-radius: 18px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1060,6 +1139,7 @@
                     </div>
                     <h1>Your Gateway to <span>Infinite Stories</span></h1>
                     <p>Discover thousands of light novels, web novels, and stories from multiple sources. Beautiful design, offline reading, and a personalized experience crafted for true readers.</p>
+                    <p class="platform-note">💻 PC app is coming soon. 🍎 iOS app is coming soon. Want to speed it up? <a href="https://ko-fi.com/akuftw" target="_blank" rel="noopener noreferrer">Help fund development</a>.</p>
                     <div class="hero-buttons">
                         <a href="#download" class="btn btn-primary">
                             📥 Download Now
@@ -1150,7 +1230,7 @@
                     <p>Listen to your novels with built-in TTS support. Perfect for multitasking.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">�</div>
+                    <div class="feature-icon">🔖</div>
                     <h3>Bookmarks & History</h3>
                     <p>Pick up where you left off with bookmarks and reading history.</p>
                 </div>
@@ -1160,7 +1240,7 @@
                     <p>Modern design focused on speed, readability, and simple navigation.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">�️</div>
+                    <div class="feature-icon">🚫</div>
                     <h3>No Ads / No Subscription</h3>
                     <p>Free experience without forced subscriptions or annoying popups.</p>
                 </div>
@@ -1179,7 +1259,7 @@
             <div class="download-card">
                 <span class="section-tag">📥 Download</span>
                 <h2>Get NovelGrimoire Now</h2>
-                <p>Free forever. No ads. No subscriptions. Just pure reading pleasure.</p>
+                <p>Free forever. No ads. No subscriptions. Just pure reading pleasure. PC and iOS builds are coming soon — support the project to help speed up development.</p>
                 
                 <div class="download-buttons">
                     <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1" class="download-btn">
@@ -1210,6 +1290,7 @@
                     <span>📱 Android 5.0+</span>
                     <span>🔄 Auto-updates</span>
                 </div>
+                <p class="platform-note" style="margin-top: 22px; margin-bottom: 0;">☕ If you like the app, consider supporting it on <a href="https://ko-fi.com/akuftw" target="_blank" rel="noopener noreferrer">Ko-fi</a>.</p>
             </div>
         </div>
     </section>
