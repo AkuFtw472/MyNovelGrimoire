@@ -11,7 +11,8 @@
     <meta property="og:title" content="NovelGrimoire - Ultimate Novel Reading App">
     <meta property="og:description" content="Read your favorite novels from multiple sources in one app">
     <meta property="og:image" content="https://raw.githubusercontent.com/AkuFtw472/MyNovelGrimoire/main/github-upload/assets/icon.png">
-    <meta property="og:url" content="https://akuftw472.github.io/MyNovelGrimoire/">
+    <meta property="og:url" content="https://www.mynovelgrimoire.xyz/">
+    <link rel="canonical" href="https://www.mynovelgrimoire.xyz/">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,6 +118,12 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
+        #top {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
         
         /* Navigation */
         nav {
@@ -202,10 +209,25 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
         }
+
+        .nav-ctas {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-cta-support {
+            background: linear-gradient(135deg, #FF5E5B 0%, #FF2E63 100%);
+            box-shadow: 0 4px 15px rgba(255, 94, 91, 0.35);
+        }
         
         .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        .nav-cta-support:hover {
+            box-shadow: 0 6px 25px rgba(255, 94, 91, 0.45);
         }
         
         /* Hero Section */
@@ -222,6 +244,62 @@
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
+        }
+
+        .announcement {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 18px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(255, 94, 91, 0.22) 0%, rgba(139, 92, 246, 0.22) 50%, rgba(245, 158, 11, 0.18) 100%);
+            background-size: 200% 200%;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 22px;
+            backdrop-filter: blur(10px);
+            font-size: 1.05em;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 18px 60px rgba(255, 94, 91, 0.18);
+            animation: announceBg 6s ease infinite, announcePulse 2.6s ease-in-out infinite;
+        }
+
+        .announcement strong {
+            background: linear-gradient(135deg, #FF5E5B 0%, #F59E0B 50%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .announcement-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: #FF5E5B;
+            box-shadow: 0 0 0 6px rgba(255, 94, 91, 0.18);
+            animation: dotPulse 1.3s ease-in-out infinite;
+        }
+
+        @keyframes announceBg {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes announcePulse {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 18px 60px rgba(255, 94, 91, 0.18);
+            }
+            50% {
+                transform: translateY(-1px) scale(1.02);
+                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.10), 0 24px 80px rgba(139, 92, 246, 0.22);
+            }
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
         }
         
         .hero-text h1 {
@@ -288,6 +366,40 @@
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
+        }
+
+        .btn-support {
+            background: linear-gradient(135deg, #FF5E5B 0%, #FF2E63 100%);
+            color: white;
+            box-shadow: 0 8px 30px rgba(255, 94, 91, 0.35);
+        }
+
+        .btn-support:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 94, 91, 0.45);
+        }
+
+        .btn-github {
+            background: linear-gradient(135deg, #0b1220 0%, #1f2937 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .btn-github:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-discord {
+            background: linear-gradient(135deg, #5865F2 0%, #8B5CF6 100%);
+            color: white;
+            box-shadow: 0 8px 30px rgba(88, 101, 242, 0.35);
+        }
+
+        .btn-discord:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(88, 101, 242, 0.45);
         }
         
         .hero-visual {
@@ -658,7 +770,7 @@
         
         .community-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
         
@@ -689,6 +801,26 @@
             font-size: 2.5em;
             margin: 0 auto 20px;
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .community-card.github .community-icon {
+            background: linear-gradient(135deg, #111827 0%, #334155 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .community-card.discord .community-icon {
+            background: linear-gradient(135deg, #5865F2 0%, #8B5CF6 100%);
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.35);
+        }
+
+        .community-card.support .community-icon {
+            background: linear-gradient(135deg, #FF5E5B 0%, #FF2E63 100%);
+            box-shadow: 0 10px 30px rgba(255, 94, 91, 0.35);
+        }
+
+        .community-card.bug .community-icon {
+            background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.35);
         }
         
         .community-card h3 {
@@ -791,6 +923,10 @@
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .community-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -839,8 +975,12 @@
                 display: none;
             }
             
-            .nav-cta {
+            .nav-cta-download {
                 display: none;
+            }
+
+            .nav-cta-support {
+                padding: 10px 16px;
             }
             
             .mobile-menu-btn {
@@ -849,6 +989,12 @@
             
             .hero-text h1 {
                 font-size: 2.2em;
+            }
+
+            .announcement {
+                font-size: 0.95em;
+                padding: 12px 14px;
+                text-align: left;
             }
             
             .features-grid,
@@ -880,6 +1026,7 @@
     </style>
 </head>
 <body>
+    <div id="top"></div>
     <div class="bg-animation"></div>
     
     <!-- Floating Particles -->
@@ -888,13 +1035,16 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container nav-content">
-            <a href="#" class="nav-logo">📚 <span>NovelGrimoire</span></a>
+            <a href="#top" class="nav-logo">📚 <span>mynovelgrimoire.xyz</span></a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#download">Download</a></li>
                 <li><a href="#community">Community</a></li>
             </ul>
-            <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1" class="nav-cta">Download</a>
+            <div class="nav-ctas">
+                <a href="https://ko-fi.com/akuftw" class="nav-cta nav-cta-support" target="_blank" rel="noopener noreferrer">☕ Help the Dev</a>
+                <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1" class="nav-cta nav-cta-download">Download</a>
+            </div>
             <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
@@ -904,11 +1054,24 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div class="announcement">
+                        <span class="announcement-dot"></span>
+                        <span><strong>MyManhwaGrimoire</strong> is coming soon — stay tuned.</span>
+                    </div>
                     <h1>Your Gateway to <span>Infinite Stories</span></h1>
                     <p>Discover thousands of light novels, web novels, and stories from multiple sources. Beautiful design, offline reading, and a personalized experience crafted for true readers.</p>
                     <div class="hero-buttons">
                         <a href="#download" class="btn btn-primary">
                             📥 Download Now
+                        </a>
+                        <a href="https://ko-fi.com/akuftw" class="btn btn-support" target="_blank" rel="noopener noreferrer">
+                            ☕ Help the Developer
+                        </a>
+                        <a href="https://github.com/AkuFtw472/MyNovelGrimoire" class="btn btn-github" target="_blank" rel="noopener noreferrer">
+                            ⭐ Visit GitHub
+                        </a>
+                        <a href="https://discord.com/users/aku.ftw" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                            💬 Join Discord
                         </a>
                         <a href="#features" class="btn btn-secondary">
                             ✨ Explore Features
@@ -969,17 +1132,17 @@
                 <div class="feature-card">
                     <div class="feature-icon">📖</div>
                     <h3>Multiple Sources</h3>
-                    <p>Access content from 50+ novel websites in one app. No more switching between different sites.</p>
+                    <p>Browse and read novels from multiple supported sources in one place.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎨</div>
                     <h3>Custom Themes</h3>
-                    <p>Personalize your reading with custom themes, fonts, text sizes, and reading modes.</p>
+                    <p>Personalize fonts, sizes, colors, and reading modes for comfort.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⬇️</div>
                     <h3>Offline Reading</h3>
-                    <p>Download chapters and read anywhere, anytime. Perfect for commutes and travel.</p>
+                    <p>Save chapters and keep reading even when your internet is unstable.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔊</div>
@@ -987,14 +1150,24 @@
                     <p>Listen to your novels with built-in TTS support. Perfect for multitasking.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Smart Library</h3>
-                    <p>Organize novels with categories, bookmarks, and automatic progress tracking.</p>
+                    <div class="feature-icon">�</div>
+                    <h3>Bookmarks & History</h3>
+                    <p>Pick up where you left off with bookmarks and reading history.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast & Clean UI</h3>
+                    <p>Modern design focused on speed, readability, and simple navigation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">�️</div>
+                    <h3>No Ads / No Subscription</h3>
+                    <p>Free experience without forced subscriptions or annoying popups.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔄</div>
-                    <h3>Auto Updates</h3>
-                    <p>Get the latest features automatically. Never miss an update.</p>
+                    <h3>Updates</h3>
+                    <p>Stay up to date with improvements and fixes as new versions release.</p>
                 </div>
             </div>
         </div>
@@ -1046,24 +1219,29 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">💬 Community</span>
-                <h2>Join the Family</h2>
-                <p>Connect with thousands of novel readers worldwide</p>
+                <h2>Community & Support</h2>
+                <p>Get help, report bugs, and support the project</p>
             </div>
             <div class="community-grid">
-                <a href="https://github.com/AkuFtw472/MyNovelGrimoire" class="community-card">
+                <a href="https://github.com/AkuFtw472/MyNovelGrimoire" class="community-card github" target="_blank" rel="noopener noreferrer">
                     <div class="community-icon">⭐</div>
                     <h3>GitHub</h3>
                     <p>Star the project & contribute</p>
                 </a>
-                <a href="https://discord.com/users/aku.ftw" class="community-card">
+                <a href="https://discord.com/users/aku.ftw" class="community-card discord" target="_blank" rel="noopener noreferrer">
                     <div class="community-icon">💬</div>
                     <h3>Discord</h3>
                     <p>Chat with the community</p>
                 </a>
-                <a href="https://ko-fi.com/akuftw" class="community-card">
+                <a href="https://ko-fi.com/akuftw" class="community-card support" target="_blank" rel="noopener noreferrer">
                     <div class="community-icon">☕</div>
                     <h3>Support</h3>
                     <p>Buy me a coffee</p>
+                </a>
+                <a href="https://github.com/AkuFtw472/MyNovelGrimoire/issues" class="community-card bug" target="_blank" rel="noopener noreferrer">
+                    <div class="community-icon">🐛</div>
+                    <h3>Report a Bug</h3>
+                    <p>Help us improve</p>
                 </a>
             </div>
         </div>
@@ -1192,6 +1370,7 @@
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            mobileMenuBtn.setAttribute('aria-expanded', navLinks.classList.contains('active') ? 'true' : 'false');
         });
         
         // Close menu when clicking a link
@@ -1199,6 +1378,7 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.textContent = '☰';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
         
@@ -1207,6 +1387,7 @@
             if (!e.target.closest('nav')) {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.textContent = '☰';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         });
     </script>
