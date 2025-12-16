@@ -10,8 +10,8 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="NovelGrimoire - Ultimate Novel Reading App">
     <meta property="og:description" content="Read your favorite novels from multiple sources in one app">
-    <meta property="og:image" content="https://raw.githubusercontent.com/akuftw/NovelGrimoire/main/github-upload/assets/icon.png">
-    <meta property="og:url" content="https://akuftw.github.io/NovelGrimoire/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/AkuFtw472/MyNovelGrimoire/main/github-upload/assets/icon.png">
+    <meta property="og:url" content="https://akuftw472.github.io/MyNovelGrimoire/">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -894,7 +894,7 @@
                 <li><a href="#download">Download</a></li>
                 <li><a href="#community">Community</a></li>
             </ul>
-            <a href="https://github.com/akuftw/NovelGrimoire/releases/tag/v1.1" class="nav-cta">Download</a>
+            <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1" class="nav-cta">Download</a>
             <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
@@ -1009,7 +1009,7 @@
                 <p>Free forever. No ads. No subscriptions. Just pure reading pleasure.</p>
                 
                 <div class="download-buttons">
-                    <a href="https://github.com/akuftw/NovelGrimoire/releases/tag/v1.1" class="download-btn">
+                    <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1" class="download-btn">
                         <span class="icon">📱</span>
                         <span class="text">
                             <small>Download for</small>
@@ -1023,7 +1023,7 @@
                             <span>Google Drive</span>
                         </span>
                     </a>
-                    <a href="https://github.com/akuftw/NovelGrimoire/releases" class="download-btn">
+                    <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases" class="download-btn">
                         <span class="icon">📋</span>
                         <span class="text">
                             <small>View all</small>
@@ -1050,7 +1050,7 @@
                 <p>Connect with thousands of novel readers worldwide</p>
             </div>
             <div class="community-grid">
-                <a href="https://github.com/akuftw/NovelGrimoire" class="community-card">
+                <a href="https://github.com/AkuFtw472/MyNovelGrimoire" class="community-card">
                     <div class="community-icon">⭐</div>
                     <h3>GitHub</h3>
                     <p>Star the project & contribute</p>
@@ -1066,7 +1066,7 @@
                     <p>Buy me a coffee</p>
                 </a>
             </div>
-        </div> 
+        </div>
     </section>
     
     <!-- Footer -->
@@ -1082,7 +1082,7 @@
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#download">Download</a></li>
-                        <li><a href="https://github.com/akuftw/NovelGrimoire/releases">Changelog</a></li>
+                        <li><a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases">Changelog</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -1095,7 +1095,7 @@
                 <div class="footer-links">
                     <h4>Connect</h4>
                     <ul>
-                        <li><a href="https://github.com/akuftw/NovelGrimoire">GitHub</a></li>
+                        <li><a href="https://github.com/AkuFtw472/MyNovelGrimoire">GitHub</a></li>
                         <li><a href="https://discord.com/users/aku.ftw">Discord</a></li>
                         <li><a href="https://ko-fi.com/akuftw">Support</a></li>
                     </ul>
@@ -1192,25 +1192,24 @@
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            mobileMenuBtn.setAttribute('aria-expanded', navLinks.classList.contains('active') ? 'true' : 'false');
         });
         
-// Close menu when clicking a link
-navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuBtn.textContent = '☰';
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    });
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('nav')) {
-        navLinks.classList.remove('active');
-        mobileMenuBtn.textContent = '☰';
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    }
-});
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         });
     </script>
