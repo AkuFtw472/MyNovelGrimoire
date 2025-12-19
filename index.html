@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovelGrimoire - The Ultimate Novel Reading App</title>
-    <meta name="description" content="Read light novels, web novels, and stories from multiple sources in one beautiful app. Download NovelGrimoire for Android today!">
+    <meta name="description"
+        content="Read light novels, web novels, and stories from multiple sources in one beautiful app. Download NovelGrimoire for Android today!">
     <meta name="keywords" content="novel reader, light novel app, web novel reader, reading app, android novel app">
-    
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5044613738088416"
+        crossorigin="anonymous"></script>
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="NovelGrimoire - Ultimate Novel Reading App">
     <meta property="og:description" content="Read your favorite novels from multiple sources in one app">
-    <meta property="og:image" content="https://raw.githubusercontent.com/AkuFtw472/MyNovelGrimoire/main/github-upload/assets/icon.png">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/AkuFtw472/MyNovelGrimoire/main/github-upload/assets/icon.png">
     <meta property="og:url" content="https://www.mynovelgrimoire.xyz/">
     <link rel="canonical" href="https://www.mynovelgrimoire.xyz/">
     <link rel="icon" href="./favicon.ico" sizes="any">
@@ -21,14 +28,14 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="manifest" href="./site.webmanifest">
     <meta name="theme-color" content="#0F172A">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5044613738088416"
-         crossorigin="anonymous"></script>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --primary: #8B5CF6;
@@ -45,17 +52,17 @@
             --glass: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
@@ -67,7 +74,7 @@
         a {
             overflow-wrap: anywhere;
         }
-        
+
         /* Animated Background */
         .bg-animation {
             position: fixed;
@@ -79,7 +86,7 @@
             background: var(--gradient-3);
             overflow: hidden;
         }
-        
+
         .bg-animation::before {
             content: '';
             position: absolute;
@@ -88,18 +95,31 @@
             width: 200%;
             height: 200%;
             background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
             animation: bgMove 20s ease-in-out infinite;
         }
-        
+
         @keyframes bgMove {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(2%, 2%) rotate(1deg); }
-            50% { transform: translate(0, 4%) rotate(0deg); }
-            75% { transform: translate(-2%, 2%) rotate(-1deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(2%, 2%) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(0, 4%) rotate(0deg);
+            }
+
+            75% {
+                transform: translate(-2%, 2%) rotate(-1deg);
+            }
         }
-        
+
         /* Floating Particles */
         .particles {
             position: fixed;
@@ -110,7 +130,7 @@
             z-index: -1;
             pointer-events: none;
         }
-        
+
         .particle {
             position: absolute;
             width: 4px;
@@ -119,14 +139,29 @@
             border-radius: 50%;
             animation: float 15s infinite;
         }
-        
+
         @keyframes float {
-            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+
+            0%,
+            100% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -138,7 +173,7 @@
             top: 0;
             left: 0;
         }
-        
+
         /* Navigation */
         nav {
             position: fixed;
@@ -149,20 +184,20 @@
             padding: 20px 0;
             transition: all 0.3s ease;
         }
-        
+
         nav.scrolled {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(20px);
             padding: 15px 0;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .nav-logo {
             font-size: 1.5em;
             font-weight: 800;
@@ -172,20 +207,20 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .nav-logo span {
             background: var(--gradient-2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
         }
-        
+
         .nav-links a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
@@ -193,7 +228,7 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -204,15 +239,15 @@
             background: var(--gradient-2);
             transition: width 0.3s ease;
         }
-        
+
         .nav-links a:hover {
             color: white;
         }
-        
+
         .nav-links a:hover::after {
             width: 100%;
         }
-        
+
         .nav-cta {
             background: var(--gradient-2);
             color: white;
@@ -234,7 +269,7 @@
             background: linear-gradient(135deg, #FF5E5B 0%, #FF2E63 100%);
             box-shadow: 0 4px 15px rgba(255, 94, 91, 0.35);
         }
-        
+
         .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
@@ -243,7 +278,7 @@
         .nav-cta-support:hover {
             box-shadow: 0 6px 25px rgba(255, 94, 91, 0.45);
         }
-        
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -252,7 +287,7 @@
             padding: 120px 0 80px;
             position: relative;
         }
-        
+
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -296,15 +331,25 @@
         }
 
         @keyframes announceBg {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         @keyframes announcePulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) scale(1);
                 box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 18px 60px rgba(255, 94, 91, 0.18);
             }
+
             50% {
                 transform: translateY(-1px) scale(1.02);
                 box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.10), 0 24px 80px rgba(139, 92, 246, 0.22);
@@ -312,10 +357,17 @@
         }
 
         @keyframes dotPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.25); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
         }
-        
+
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4em;
@@ -324,14 +376,14 @@
             line-height: 1.1;
             margin-bottom: 20px;
         }
-        
+
         .hero-text h1 span {
             background: var(--gradient-2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .hero-text p {
             font-size: 1.2em;
             color: rgba(255, 255, 255, 0.7);
@@ -354,13 +406,13 @@
             text-decoration-color: rgba(255, 255, 255, 0.35);
             text-underline-offset: 4px;
         }
-        
+
         .hero-buttons {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
-        
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -374,25 +426,25 @@
             cursor: pointer;
             border: none;
         }
-        
+
         .btn-primary {
             background: var(--gradient-2);
             color: white;
             box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
         }
-        
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 40px rgba(139, 92, 246, 0.5);
         }
-        
+
         .btn-secondary {
             background: var(--glass);
             color: white;
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
         }
-        
+
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
@@ -431,13 +483,13 @@
             transform: translateY(-3px);
             box-shadow: 0 12px 40px rgba(88, 101, 242, 0.45);
         }
-        
+
         .hero-visual {
             position: relative;
             display: flex;
             justify-content: center;
         }
-        
+
         .phone-mockup {
             position: relative;
             width: 280px;
@@ -446,15 +498,22 @@
             border-radius: 40px;
             padding: 12px;
             box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5),
-                        0 0 0 1px rgba(255, 255, 255, 0.1);
+                0 0 0 1px rgba(255, 255, 255, 0.1);
             animation: phoneFloat 6s ease-in-out infinite;
         }
-        
+
         @keyframes phoneFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
         }
-        
+
         .phone-screen {
             width: 100%;
             height: 100%;
@@ -469,29 +528,29 @@
             text-align: center;
             padding: 20px;
         }
-        
+
         .phone-screen .app-icon {
             font-size: 4em;
             margin-bottom: 15px;
         }
-        
+
         .phone-screen h3 {
             font-size: 1.5em;
             margin-bottom: 10px;
         }
-        
+
         .phone-screen p {
             font-size: 0.9em;
             opacity: 0.9;
         }
-        
+
         .floating-cards {
             position: absolute;
             width: 100%;
             height: 100%;
             pointer-events: none;
         }
-        
+
         .floating-card {
             position: absolute;
             background: var(--glass);
@@ -503,41 +562,48 @@
             font-size: 0.9em;
             animation: cardFloat 8s ease-in-out infinite;
         }
-        
+
         .floating-card:nth-child(1) {
             top: 10%;
             left: -20%;
             animation-delay: 0s;
         }
-        
+
         .floating-card:nth-child(2) {
             top: 60%;
             right: -15%;
             animation-delay: 2s;
         }
-        
+
         .floating-card:nth-child(3) {
             bottom: 10%;
             left: -10%;
             animation-delay: 4s;
         }
-        
+
         @keyframes cardFloat {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
         }
-        
+
         /* Stats Section */
         .stats-section {
             padding: 60px 0;
         }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
-        
+
         .stat-card {
             background: var(--glass);
             backdrop-filter: blur(10px);
@@ -547,12 +613,12 @@
             text-align: center;
             transition: all 0.3s ease;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.15);
         }
-        
+
         .stat-number {
             font-size: 3em;
             font-weight: 800;
@@ -562,22 +628,22 @@
             background-clip: text;
             margin-bottom: 5px;
         }
-        
+
         .stat-label {
             color: rgba(255, 255, 255, 0.7);
             font-weight: 500;
         }
-        
+
         /* Features Section */
         .features-section {
             padding: 100px 0;
         }
-        
+
         .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
-        
+
         .section-tag {
             display: inline-block;
             background: var(--glass);
@@ -589,27 +655,27 @@
             font-size: 0.9em;
             margin-bottom: 20px;
         }
-        
+
         .section-header h2 {
             font-family: 'Playfair Display', serif;
             font-size: 3em;
             color: white;
             margin-bottom: 15px;
         }
-        
+
         .section-header p {
             color: rgba(255, 255, 255, 0.6);
             font-size: 1.1em;
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
-        
+
         .feature-card {
             background: var(--glass);
             backdrop-filter: blur(10px);
@@ -620,7 +686,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .feature-card::before {
             content: '';
             position: absolute;
@@ -632,16 +698,16 @@
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.15);
         }
-        
+
         .feature-card:hover::before {
             transform: scaleX(1);
         }
-        
+
         .feature-icon {
             width: 70px;
             height: 70px;
@@ -654,24 +720,24 @@
             margin-bottom: 25px;
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
         }
-        
+
         .feature-card h3 {
             color: white;
             font-size: 1.4em;
             margin-bottom: 15px;
             font-weight: 700;
         }
-        
+
         .feature-card p {
             color: rgba(255, 255, 255, 0.6);
             line-height: 1.7;
         }
-        
+
         /* Download Section */
         .download-section {
             padding: 100px 0;
         }
-        
+
         .download-card {
             background: linear-gradient(145deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
             backdrop-filter: blur(20px);
@@ -682,7 +748,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .download-card::before {
             content: '';
             position: absolute;
@@ -693,30 +759,39 @@
             background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
             animation: pulse 10s ease-in-out infinite;
         }
-        
+
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
         }
-        
-        .download-card > * {
+
+        .download-card>* {
             position: relative;
             z-index: 1;
         }
-        
+
         .download-card h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5em;
             color: white;
             margin-bottom: 15px;
         }
-        
-        .download-card > p {
+
+        .download-card>p {
             color: rgba(255, 255, 255, 0.7);
             font-size: 1.1em;
             margin-bottom: 40px;
         }
-        
+
         .download-buttons {
             display: flex;
             justify-content: center;
@@ -724,7 +799,7 @@
             flex-wrap: wrap;
             margin-bottom: 40px;
         }
-        
+
         .download-btn {
             display: flex;
             align-items: center;
@@ -738,44 +813,44 @@
             transition: all 0.3s ease;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
-        
+
         .download-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
-        
+
         .download-btn .icon {
             font-size: 1.5em;
         }
-        
+
         .download-btn .text {
             text-align: left;
         }
-        
+
         .download-btn .text small {
             display: block;
             font-size: 0.75em;
             color: var(--gray);
             font-weight: 400;
         }
-        
+
         .download-btn .text span {
             font-size: 1.1em;
         }
-        
+
         .download-btn.drive-btn {
             background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%);
             color: white;
         }
-        
+
         .download-btn.drive-btn .text small {
             color: rgba(255, 255, 255, 0.8);
         }
-        
+
         .download-btn.drive-btn:hover {
             box-shadow: 0 20px 50px rgba(66, 133, 244, 0.4);
         }
-        
+
         .version-info {
             display: inline-flex;
             align-items: center;
@@ -786,24 +861,24 @@
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9em;
         }
-        
+
         .version-info span {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+
         /* Community Section */
         .community-section {
             padding: 100px 0;
         }
-        
+
         .community-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
-        
+
         .community-card {
             background: var(--glass);
             backdrop-filter: blur(10px);
@@ -814,12 +889,12 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .community-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.15);
         }
-        
+
         .community-icon {
             width: 80px;
             height: 80px;
@@ -852,30 +927,30 @@
             background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
             box-shadow: 0 10px 30px rgba(245, 158, 11, 0.35);
         }
-        
+
         .community-card h3 {
             color: white;
             font-size: 1.3em;
             margin-bottom: 10px;
         }
-        
+
         .community-card p {
             color: rgba(255, 255, 255, 0.6);
         }
-        
+
         /* Footer */
         footer {
             padding: 60px 0 30px;
             border-top: 1px solid var(--glass-border);
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 60px;
             margin-bottom: 40px;
         }
-        
+
         .footer-brand h3 {
             font-size: 1.5em;
             color: white;
@@ -884,43 +959,43 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .footer-brand p {
             color: rgba(255, 255, 255, 0.6);
             line-height: 1.8;
         }
-        
+
         .footer-links h4 {
             color: white;
             font-size: 1.1em;
             margin-bottom: 20px;
         }
-        
+
         .footer-links ul {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 12px;
         }
-        
+
         .footer-links a {
             color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .footer-links a:hover {
             color: var(--primary);
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid var(--glass-border);
             color: rgba(255, 255, 255, 0.5);
         }
-        
+
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -930,26 +1005,26 @@
             font-size: 1.5em;
             cursor: pointer;
         }
-        
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
+
             .hero-text h1 {
                 font-size: 3em;
             }
-            
+
             .hero-buttons {
                 justify-content: center;
             }
-            
+
             .hero-visual {
                 margin-top: 40px;
             }
-            
+
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -957,16 +1032,16 @@
             .community-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
         }
-        
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -981,30 +1056,30 @@
                 gap: 0;
                 border-bottom: 1px solid var(--glass-border);
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
-            
+
             .nav-links li {
                 width: 100%;
             }
-            
+
             .nav-links a {
                 display: block;
                 padding: 15px 20px;
                 border-radius: 10px;
                 transition: background 0.3s ease;
             }
-            
+
             .nav-links a:hover {
                 background: rgba(255, 255, 255, 0.1);
             }
-            
+
             .nav-links a::after {
                 display: none;
             }
-            
+
             .nav-cta-download {
                 display: none;
             }
@@ -1012,11 +1087,11 @@
             .nav-cta-support {
                 padding: 10px 16px;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             .hero-text h1 {
                 font-size: 2.2em;
             }
@@ -1026,29 +1101,29 @@
                 padding: 12px 14px;
                 text-align: left;
             }
-            
+
             .features-grid,
             .community-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .section-header h2 {
                 font-size: 2em;
             }
-            
+
             .download-card {
                 padding: 40px 20px;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
+
             .floating-cards {
                 display: none;
             }
@@ -1114,13 +1189,14 @@
         }
     </style>
 </head>
+
 <body>
     <div id="top"></div>
     <div class="bg-animation"></div>
-    
+
     <!-- Floating Particles -->
     <div class="particles" id="particles"></div>
-    
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container nav-content">
@@ -1131,13 +1207,15 @@
                 <li><a href="#community">Community</a></li>
             </ul>
             <div class="nav-ctas">
-                <a href="https://ko-fi.com/akuftw" class="nav-cta nav-cta-support" target="_blank" rel="noopener noreferrer">☕ Help the Dev</a>
-                <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1" class="nav-cta nav-cta-download">Download</a>
+                <a href="https://ko-fi.com/akuftw" class="nav-cta nav-cta-support" target="_blank"
+                    rel="noopener noreferrer">☕ Help the Dev</a>
+                <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1"
+                    class="nav-cta nav-cta-download">Download</a>
             </div>
             <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -1148,19 +1226,26 @@
                         <span><strong>MyManhwaGrimoire</strong> is coming soon — stay tuned.</span>
                     </div>
                     <h1>Your Gateway to <span>Infinite Stories</span></h1>
-                    <p>Discover thousands of light novels, web novels, and stories from multiple sources. Beautiful design, offline reading, and a personalized experience crafted for true readers.</p>
-                    <p class="platform-note">💻 PC app is coming soon. 🍎 iOS app is coming soon. Want to speed it up? <a href="https://ko-fi.com/akuftw" target="_blank" rel="noopener noreferrer">Help fund development</a>.</p>
+                    <p>Discover thousands of light novels, web novels, and stories from multiple sources. Beautiful
+                        design, offline reading, and a personalized experience crafted for true readers.</p>
+                    <p class="platform-note">💻 PC app is coming soon. 🍎 iOS app is coming soon. Want to speed it up?
+                        <a href="https://ko-fi.com/akuftw" target="_blank" rel="noopener noreferrer">Help fund
+                            development</a>.
+                    </p>
                     <div class="hero-buttons">
                         <a href="#download" class="btn btn-primary">
                             📥 Download Now
                         </a>
-                        <a href="https://ko-fi.com/akuftw" class="btn btn-support" target="_blank" rel="noopener noreferrer">
+                        <a href="https://ko-fi.com/akuftw" class="btn btn-support" target="_blank"
+                            rel="noopener noreferrer">
                             ☕ Help the Developer
                         </a>
-                        <a href="https://github.com/AkuFtw472/MyNovelGrimoire" class="btn btn-github" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/AkuFtw472/MyNovelGrimoire" class="btn btn-github" target="_blank"
+                            rel="noopener noreferrer">
                             ⭐ Visit GitHub
                         </a>
-                        <a href="https://discord.com/users/aku.ftw" class="btn btn-discord" target="_blank" rel="noopener noreferrer">
+                        <a href="https://discord.com/users/aku.ftw" class="btn btn-discord" target="_blank"
+                            rel="noopener noreferrer">
                             💬 Join Discord
                         </a>
                         <a href="#features" class="btn btn-secondary">
@@ -1185,7 +1270,20 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Ad Unit 1: After Hero Section -->
+    <section style="padding: 40px 0;">
+        <div class="container">
+            <div style="text-align: center; margin: 20px 0;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5044613738088416"
+                    data-ad-slot="6411190559" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </section>
+
     <!-- Stats Section -->
     <section class="stats-section">
         <div class="container">
@@ -1209,7 +1307,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Features Section -->
     <section id="features" class="features-section">
         <div class="container">
@@ -1262,15 +1360,29 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Ad Unit 2: After Features Section -->
+    <section style="padding: 40px 0;">
+        <div class="container">
+            <div style="text-align: center; margin: 40px 0;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5044613738088416"
+                    data-ad-slot="6381779708" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </section>
+
     <!-- Download Section -->
     <section id="download" class="download-section">
         <div class="container">
             <div class="download-card">
                 <span class="section-tag">📥 Download</span>
                 <h2>Get NovelGrimoire Now</h2>
-                <p>Free forever. No ads. No subscriptions. Just pure reading pleasure. PC and iOS builds are coming soon — support the project to help speed up development.</p>
-                
+                <p>Free forever. No ads. No subscriptions. Just pure reading pleasure. PC and iOS builds are coming soon
+                    — support the project to help speed up development.</p>
+
                 <div class="download-buttons">
                     <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1" class="download-btn">
                         <span class="icon">📱</span>
@@ -1279,7 +1391,8 @@
                             <span>Android</span>
                         </span>
                     </a>
-                    <a href="https://drive.google.com/file/d/1kmWH8p25yHIxxmoZZgiKOh6mIVbwU3Tp/view?usp=drive_link" class="download-btn drive-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://drive.google.com/file/d/1kmWH8p25yHIxxmoZZgiKOh6mIVbwU3Tp/view?usp=drive_link"
+                        class="download-btn drive-btn" target="_blank" rel="noopener noreferrer">
                         <span class="icon">☁️</span>
                         <span class="text">
                             <small>Mirror on</small>
@@ -1294,17 +1407,32 @@
                         </span>
                     </a>
                 </div>
-                
+
                 <div class="version-info">
                     <span>📦 Version 1.1</span>
                     <span>📱 Android 5.0+</span>
                     <span>🔄 Auto-updates</span>
                 </div>
-                <p class="platform-note" style="margin-top: 22px; margin-bottom: 0;">☕ If you like the app, consider supporting it on <a href="https://ko-fi.com/akuftw" target="_blank" rel="noopener noreferrer">Ko-fi</a>.</p>
+                <p class="platform-note" style="margin-top: 22px; margin-bottom: 0;">☕ If you like the app, consider
+                    supporting it on <a href="https://ko-fi.com/akuftw" target="_blank"
+                        rel="noopener noreferrer">Ko-fi</a>.</p>
             </div>
         </div>
     </section>
-    
+
+    <!-- Ad Unit 3: Before Community Section -->
+    <section style="padding: 40px 0;">
+        <div class="container">
+            <div style="text-align: center; margin: 40px 0;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5044613738088416"
+                    data-ad-slot="5043086806" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </section>
+
     <!-- Community Section -->
     <section id="community" class="community-section">
         <div class="container">
@@ -1314,22 +1442,26 @@
                 <p>Get help, report bugs, and support the project</p>
             </div>
             <div class="community-grid">
-                <a href="https://github.com/AkuFtw472/MyNovelGrimoire" class="community-card github" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/AkuFtw472/MyNovelGrimoire" class="community-card github" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="community-icon">⭐</div>
                     <h3>GitHub</h3>
                     <p>Star the project & contribute</p>
                 </a>
-                <a href="https://discord.com/users/aku.ftw" class="community-card discord" target="_blank" rel="noopener noreferrer">
+                <a href="https://discord.com/users/aku.ftw" class="community-card discord" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="community-icon">💬</div>
                     <h3>Discord</h3>
                     <p>Chat with the community</p>
                 </a>
-                <a href="https://ko-fi.com/akuftw" class="community-card support" target="_blank" rel="noopener noreferrer">
+                <a href="https://ko-fi.com/akuftw" class="community-card support" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="community-icon">☕</div>
                     <h3>Support</h3>
                     <p>Buy me a coffee</p>
                 </a>
-                <a href="https://github.com/AkuFtw472/MyNovelGrimoire/issues" class="community-card bug" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/AkuFtw472/MyNovelGrimoire/issues" class="community-card bug" target="_blank"
+                    rel="noopener noreferrer">
                     <div class="community-icon">🐛</div>
                     <h3>Report a Bug</h3>
                     <p>Help us improve</p>
@@ -1337,14 +1469,15 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>📚 NovelGrimoire</h3>
-                    <p>The ultimate novel reading experience for Android. Read your favorite stories from multiple sources in one beautiful app.</p>
+                    <p>The ultimate novel reading experience for Android. Read your favorite stories from multiple
+                        sources in one beautiful app.</p>
                 </div>
                 <div class="footer-links">
                     <h4>App</h4>
@@ -1375,7 +1508,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
@@ -1386,7 +1519,7 @@
                 navbar.classList.remove('scrolled');
             }
         });
-        
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1397,7 +1530,7 @@
                 }
             });
         });
-        
+
         // Create floating particles
         function createParticles() {
             const container = document.getElementById('particles');
@@ -1411,12 +1544,12 @@
             }
         }
         createParticles();
-        
+
         // Animate numbers on scroll
         const observerOptions = {
             threshold: 0.5
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1439,10 +1572,10 @@
                 }
             });
         }, observerOptions);
-        
+
         const statsSection = document.querySelector('.stats-section');
         if (statsSection) observer.observe(statsSection);
-        
+
         // Add hover effect to feature cards
         document.querySelectorAll('.feature-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -1453,17 +1586,17 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
         });
-        
+
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
             mobileMenuBtn.setAttribute('aria-expanded', navLinks.classList.contains('active') ? 'true' : 'false');
         });
-        
+
         // Close menu when clicking a link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -1472,7 +1605,7 @@
                 mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('nav')) {
@@ -1483,4 +1616,5 @@
         });
     </script>
 </body>
+
 </html>
