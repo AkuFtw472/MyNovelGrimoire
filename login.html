@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NovelGrimoire</title>
+    <meta name="description"
+        content="Login to your NovelGrimoire account to sync your library and access premium features.">
+    <meta name="theme-color" content="#0F172A">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --gradient-2: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+            --dark: #0F172A;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+        }
+
+        h2 {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--gradient-2);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .toggle-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .toggle-text span {
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <h2 id="form-title">Login</h2>
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password" required>
+        </div>
+        <button onclick="handleAuth()" id="submit-btn">Sign In</button>
+
+        <p class="toggle-text" id="toggle-msg">
+            Don't have an account? <span onclick="toggleMode()">Sign Up</span>
+        </p>
+        <p id="message" style="margin-top:15px; text-align:center; min-height:20px; font-size:14px;"></p>
+    </div>
+
+    <script>
+        // Initialize Supabase
+        const SUPABASE_URL = 'https://vrbvypsfwqpzftapjwsb.supabase.co'
+        const SUPABASE_KEY = 'sb_publishable_a5aO17JHTVXtXPxdizXEyg_vYdeUJ66' // Using the same key as in app
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+
+        let isLogin = true;
+
+        function toggleMode() {
+            isLogin = !isLogin;
+            document.getElementById('form-title').innerText = isLogin ? 'Login' : 'Create Account';
+            document.getElementById('submit-btn').innerText = isLogin ? 'Sign In' : 'Sign Up';
+            document.getElementById('toggle-msg').innerHTML = isLogin
+                ? "Don't have an account? <span onclick='toggleMode()'>Sign Up</span>"
+                : "Already have an account? <span onclick='toggleMode()'>Login</span>";
+        }
+
+        async function handleAuth() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const msg = document.getElementById('message');
+
+            if (!email || !password) {
+                msg.innerText = "Please enter email and password";
+                msg.style.color = "#ff4444";
+                return;
+            }
+
+            msg.innerText = "Processing...";
+            msg.style.color = "#aaa";
+
+            if (isLogin) {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password,
+                })
+                if (error) {
+                    msg.innerText = "Error: " + error.message;
+                    msg.style.color = "#ff4444";
+                } else {
+                    msg.innerText = "Success! You are logged in.";
+                    msg.style.color = "#44ff44";
+                    // Redirect or show profile info
+                    setTimeout(() => window.location.href = 'index.html', 1000);
+                }
+            } else {
+                const { data, error } = await supabase.auth.signUp({
+                    email: email,
+                    password: password,
+                    options: {
+                        emailRedirectTo: 'https://www.mynovelgrimoire.xyz/confirmation.html'
+                    }
+                })
+                if (error) {
+                    msg.innerText = "Error: " + error.message;
+                    msg.style.color = "#ff4444";
+                } else {
+                    msg.innerText = "Account created! Please check your email to confirm.";
+                    msg.style.color = "#44ff44";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
