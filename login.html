@@ -42,143 +42,318 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
-        .auth-container {
+        /* Animated Background (Same as Index) */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 400px;
-            padding: 40px;
-            background: var(--glass);
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        }
+
+        .auth-wrapper {
+            width: 100%;
+            max-width: 480px;
+            position: relative;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .auth-card {
+            background: rgba(30, 41, 59, 0.8);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             backdrop-filter: blur(20px);
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        h2 {
-            margin-bottom: 24px;
+        .auth-header {
             text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-header h2 {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+
+        .auth-header p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Tabs */
+        .auth-tabs {
+            display: flex;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: var(--gradient-2);
+            color: white;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
         }
 
         .input-group {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+            margin-left: 4px;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid var(--glass-border);
-            border-radius: 8px;
+            border-radius: 12px;
             color: white;
             font-size: 16px;
+            transition: border-color 0.3s;
         }
 
-        button {
+        input:focus {
+            outline: none;
+            border-color: #8B5CF6;
+        }
+
+        .submit-btn {
             width: 100%;
-            padding: 14px;
+            padding: 18px;
             background: var(--gradient-2);
             border: none;
-            border-radius: 50px;
+            border-radius: 16px;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 1.1em;
             cursor: pointer;
             margin-top: 10px;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .toggle-text {
-            text-align: center;
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .status-message {
             margin-top: 20px;
-            font-size: 14px;
-            color: #ccc;
+            text-align: center;
+            min-height: 20px;
+            font-size: 0.95em;
+            border-radius: 8px;
+            padding: 10px;
+            display: none;
         }
 
-        .toggle-text span {
-            color: var(--primary);
-            cursor: pointer;
-            text-decoration: underline;
+        .status-message.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.2);
+            color: #ff8888;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .status-message.success {
+            display: block;
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        /* Spinner */
+        .loader {
+            display: none;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -12px;
+            margin-top: -12px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="auth-container">
-        <h2 id="form-title">Login</h2>
-        <div class="input-group">
-            <input type="email" id="email" placeholder="Email" required>
-        </div>
-        <div class="input-group">
-            <input type="password" id="password" placeholder="Password" required>
-        </div>
-        <button onclick="handleAuth()" id="submit-btn">Sign In</button>
+    <div class="bg-animation"></div>
 
-        <p class="toggle-text" id="toggle-msg">
-            Don't have an account? <span onclick="toggleMode()">Sign Up</span>
-        </p>
-        <p id="message" style="margin-top:15px; text-align:center; min-height:20px; font-size:14px;"></p>
+    <div class="auth-wrapper">
+        <!-- Back to Home -->
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2 id="form-title">Welcome Back</h2>
+                <p id="form-subtitle">Enter your details to access your library</p>
+            </div>
+
+            <!-- Toggles -->
+            <div class="auth-tabs">
+                <button class="tab active" onclick="switchTab('login')" id="tab-login">Login</button>
+                <button class="tab" onclick="switchTab('signup')" id="tab-signup">Sign Up</button>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+
+            <button onclick="handleAuth()" id="submit-btn" class="submit-btn">
+                <span id="btn-text">Log In</span>
+                <div class="loader" id="loader"></div>
+            </button>
+
+            <div id="status-message" class="status-message"></div>
+        </div>
     </div>
 
     <script>
         // Initialize Supabase
         const SUPABASE_URL = 'https://vrbvypsfwqpzftapjwsb.supabase.co'
-        const SUPABASE_KEY = 'sb_publishable_a5aO17JHTVXtXPxdizXEyg_vYdeUJ66' // Using the same key as in app
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+        const SUPABASE_KEY = 'sb_publishable_a5aO17JHTVXtXPxdizXEyg_vYdeUJ66'
+        let supabase;
+
+        try {
+            supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+        } catch (e) {
+            console.error("Supabase Init Error", e);
+            document.getElementById('status-message').innerText = "System Error: Could not connect to database.";
+        }
 
         let isLogin = true;
 
-        function toggleMode() {
-            isLogin = !isLogin;
-            document.getElementById('form-title').innerText = isLogin ? 'Login' : 'Create Account';
-            document.getElementById('submit-btn').innerText = isLogin ? 'Sign In' : 'Sign Up';
-            document.getElementById('toggle-msg').innerHTML = isLogin
-                ? "Don't have an account? <span onclick='toggleMode()'>Sign Up</span>"
-                : "Already have an account? <span onclick='toggleMode()'>Login</span>";
+        function switchTab(mode) {
+            isLogin = (mode === 'login');
+
+            // Update Tabs
+            document.getElementById('tab-login').className = isLogin ? 'tab active' : 'tab';
+            document.getElementById('tab-signup').className = !isLogin ? 'tab active' : 'tab';
+
+            // Update Text
+            document.getElementById('form-title').innerText = isLogin ? 'Welcome Back' : 'Join the Circle';
+            document.getElementById('form-subtitle').innerText = isLogin ? 'Enter your details to access your library' : 'Create an account to start your journey';
+            document.getElementById('btn-text').innerText = isLogin ? 'Log In' : 'Create Account';
+
+            // Clear status
+            document.getElementById('status-message').innerText = '';
+            document.getElementById('status-message').className = 'status-message';
         }
 
         async function handleAuth() {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const msg = document.getElementById('message');
+            const msg = document.getElementById('status-message');
+            const btnText = document.getElementById('btn-text');
+            const loader = document.getElementById('loader');
 
             if (!email || !password) {
-                msg.innerText = "Please enter email and password";
-                msg.style.color = "#ff4444";
+                showMessage("Please enter both email and password.", "error");
                 return;
             }
 
-            msg.innerText = "Processing...";
-            msg.style.color = "#aaa";
+            // Loading State
+            btnText.style.opacity = '0';
+            loader.style.display = 'block';
+            msg.innerText = "";
 
-            if (isLogin) {
-                const { data, error } = await supabase.auth.signInWithPassword({
-                    email: email,
-                    password: password,
-                })
-                if (error) {
-                    msg.innerText = "Error: " + error.message;
-                    msg.style.color = "#ff4444";
+            try {
+                if (isLogin) {
+                    const { data, error } = await supabase.auth.signInWithPassword({
+                        email: email,
+                        password: password,
+                    })
+
+                    if (error) throw error;
+
+                    showMessage("Success! Redirecting...", "success");
+                    setTimeout(() => window.location.href = 'index.html', 1500);
                 } else {
-                    msg.innerText = "Success! You are logged in.";
-                    msg.style.color = "#44ff44";
-                    // Redirect or show profile info
-                    setTimeout(() => window.location.href = 'index.html', 1000);
+                    const { data, error } = await supabase.auth.signUp({
+                        email: email,
+                        password: password,
+                        options: {
+                            emailRedirectTo: 'https://www.mynovelgrimoire.xyz/confirmation.html'
+                        }
+                    })
+
+                    if (error) throw error;
+
+                    showMessage("Account created! Please verify your email.", "success");
                 }
-            } else {
-                const { data, error } = await supabase.auth.signUp({
-                    email: email,
-                    password: password,
-                    options: {
-                        emailRedirectTo: 'https://www.mynovelgrimoire.xyz/confirmation.html'
-                    }
-                })
-                if (error) {
-                    msg.innerText = "Error: " + error.message;
-                    msg.style.color = "#ff4444";
-                } else {
-                    msg.innerText = "Account created! Please check your email to confirm.";
-                    msg.style.color = "#44ff44";
-                }
+            } catch (error) {
+                console.error("Auth Error", error);
+                showMessage(error.message || "An unknown error occurred", "error");
+            } finally {
+                // Reset Loading
+                btnText.style.opacity = '1';
+                loader.style.display = 'none';
             }
+        }
+
+        function showMessage(text, type) {
+            const msg = document.getElementById('status-message');
+            msg.innerText = text;
+            msg.className = 'status-message ' + type;
         }
     </script>
 
