@@ -271,10 +271,12 @@
         // Initialize Supabase
         const SUPABASE_URL = 'https://vrbvypsfwqpzftapjwsb.supabase.co'
         const SUPABASE_KEY = 'sb_publishable_a5aO17JHTVXtXPxdizXEyg_vYdeUJ66'
-        let supabase;
+        let supabaseClient;
 
         try {
-            supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+            // Use the global 'supabase' object to create our client
+            const { createClient } = supabase;
+            supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
         } catch (e) {
             console.error("Supabase Init Error", e);
             document.getElementById('status-message').innerText = "System Error: Could not connect to database.";
@@ -295,11 +297,17 @@
             document.getElementById('btn-text').innerText = isLogin ? 'Log In' : 'Create Account';
 
             // Clear status
-            document.getElementById('status-message').innerText = '';
-            document.getElementById('status-message').className = 'status-message';
+            const statusMsg = document.getElementById('status-message');
+            statusMsg.innerText = '';
+            statusMsg.className = 'status-message';
         }
 
         async function handleAuth() {
+            if (!supabaseClient) {
+                showMessage("System Error: Supabase client not initialized.", "error");
+                return;
+            }
+
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const msg = document.getElementById('status-message');
@@ -314,11 +322,11 @@
             // Loading State
             btnText.style.opacity = '0';
             loader.style.display = 'block';
-            msg.innerText = "";
+            showMessage("", ""); // clear msg
 
             try {
                 if (isLogin) {
-                    const { data, error } = await supabase.auth.signInWithPassword({
+                    const { data, error } = await supabaseClient.auth.signInWithPassword({
                         email: email,
                         password: password,
                     })
@@ -328,7 +336,7 @@
                     showMessage("Success! Redirecting...", "success");
                     setTimeout(() => window.location.href = 'index.html', 1500);
                 } else {
-                    const { data, error } = await supabase.auth.signUp({
+                    const { data, error } = await supabaseClient.auth.signUp({
                         email: email,
                         password: password,
                         options: {
