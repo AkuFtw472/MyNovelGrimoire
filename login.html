@@ -172,8 +172,28 @@
             box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
         }
 
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .submit-btn:active {
             transform: translateY(0);
+        }
+
+        .resend-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9em;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .resend-link:hover {
+            color: var(--primary);
         }
 
         .status-message {
@@ -198,6 +218,13 @@
             background: rgba(34, 197, 94, 0.2);
             color: #86efac;
             border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .status-message.info {
+            display: block;
+            background: rgba(59, 130, 246, 0.2);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
         /* Spinner */
@@ -263,6 +290,10 @@
                 <div class="loader" id="loader"></div>
             </button>
 
+            <a id="resend-link" class="resend-link" style="display:none" onclick="resendConfirmation()">
+                Didn't receive email? Resend.
+            </a>
+
             <div id="status-message" class="status-message"></div>
         </div>
     </div>
@@ -274,12 +305,17 @@
         let supabaseClient;
 
         try {
-            // Use the global 'supabase' object to create our client
-            const { createClient } = supabase;
-            supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+            // Robust check for global Supabase object
+            if (window.supabase && window.supabase.createClient) {
+                supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+            } else {
+                console.error("Supabase library not found on window");
+                throw new Error("Library missing");
+            }
         } catch (e) {
             console.error("Supabase Init Error", e);
-            document.getElementById('status-message').innerText = "System Error: Could not connect to database.";
+            document.getElementById('status-message').innerText = "System Error: Could not connect to database. Check AdBlock.";
+            document.getElementById('status-message').className = 'status-message error';
         }
 
         let isLogin = true;
@@ -296,10 +332,15 @@
             document.getElementById('form-subtitle').innerText = isLogin ? 'Enter your details to access your library' : 'Create an account to start your journey';
             document.getElementById('btn-text').innerText = isLogin ? 'Log In' : 'Create Account';
 
-            // Clear status
+            // Clear Fields
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+
+            // Clear status & Resend link
             const statusMsg = document.getElementById('status-message');
             statusMsg.innerText = '';
             statusMsg.className = 'status-message';
+            document.getElementById('resend-link').style.display = 'none';
         }
 
         async function handleAuth() {
@@ -313,16 +354,24 @@
             const msg = document.getElementById('status-message');
             const btnText = document.getElementById('btn-text');
             const loader = document.getElementById('loader');
+            const submitBtn = document.getElementById('submit-btn');
 
             if (!email || !password) {
                 showMessage("Please enter both email and password.", "error");
                 return;
             }
 
+            if (password.length < 6) {
+                showMessage("Password must be at least 6 characters.", "error");
+                return;
+            }
+
             // Loading State
             btnText.style.opacity = '0';
             loader.style.display = 'block';
+            submitBtn.disabled = true;
             showMessage("", ""); // clear msg
+            document.getElementById('resend-link').style.display = 'none';
 
             try {
                 if (isLogin) {
@@ -346,15 +395,55 @@
 
                     if (error) throw error;
 
-                    showMessage("Account created! Please verify your email.", "success");
+                    if (data?.user?.identities?.length === 0) {
+                        showMessage("This email is already registered. Please Log In.", "info");
+                        setTimeout(() => switchTab('login'), 2000);
+                    } else {
+                        showMessage("Account created! check your email.", "success");
+                        document.getElementById('resend-link').style.display = 'block';
+                    }
                 }
             } catch (error) {
                 console.error("Auth Error", error);
-                showMessage(error.message || "An unknown error occurred", "error");
+                let text = error.message || "An unknown error occurred";
+                if (text.includes("Email not confirmed")) {
+                    text += " Please check your inbox.";
+                    document.getElementById('resend-link').style.display = 'block';
+                }
+                showMessage(text, "error");
             } finally {
                 // Reset Loading
                 btnText.style.opacity = '1';
                 loader.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        }
+
+        async function resendConfirmation() {
+            const email = document.getElementById('email').value;
+            if (!email) {
+                showMessage("Please enter your email first.", "error");
+                return;
+            }
+
+            showMessage("Resending confirmation...", "info");
+
+            const { data, error } = await supabaseClient.auth.resend({
+                type: 'signup',
+                email: email,
+                options: {
+                    emailRedirectTo: 'https://www.mynovelgrimoire.xyz/confirmation.html'
+                }
+            });
+
+            if (error) {
+                if (error.status === 429) {
+                    showMessage("Too many requests. Please wait 60 seconds.", "error");
+                } else {
+                    showMessage("Error: " + error.message, "error");
+                }
+            } else {
+                showMessage("Confirmation email sent! Check Spam folder.", "success");
             }
         }
 
