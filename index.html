@@ -1148,55 +1148,125 @@
                 font-size: 1.15em;
             }
 
-            .container {
-                padding: 0 16px;
+            /* RESPONSIVE DESIGN */
+            @media (max-width: 1200px) {
+                .hero-text h1 {
+                    font-size: 3em;
+                }
+
+                .hero-text p {
+                    font-size: 1.1em;
+                    max-width: 600px;
+                }
+
+                .features-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
             }
 
-            .hero {
-                padding: 110px 0 70px;
+            @media (max-width: 900px) {
+                .hero-content {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                    gap: 50px;
+                }
+
+                .hero-text h1 {
+                    font-size: 3em;
+                }
+
+                .hero-text p {
+                    margin: 0 auto 30px;
+                }
+
+                .hero-buttons {
+                    justify-content: center;
+                }
+
+                .hero-visual {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .download-card {
+                    padding: 40px 20px;
+                }
             }
 
-            .hero-buttons {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
+            @media (max-width: 768px) {
+                nav {
+                    padding: 15px 0;
+                }
+
+                .nav-content {
+                    padding: 0 20px;
+                }
+
+                .nav-links {
+                    display: none;
+                }
+
+                /* Hide desktop nav */
+                .mobile-menu-btn {
+                    display: block;
+                }
+
+                /* Show burger if implemented, or just hide */
+
+                .hero {
+                    padding-top: 100px;
+                }
+
+                .hero-text h1 {
+                    font-size: 2.2em;
+                }
+
+                .cta-buttons {
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 320px;
+                    margin: 0 auto;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+                }
+
+                .features-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .download-buttons {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                .download-btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+
+                .version-info {
+                    flex-direction: column;
+                    gap: 8px;
+                }
             }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-                padding: 14px 20px;
-            }
+            @media (max-width: 480px) {
+                .hero-text h1 {
+                    font-size: 2em;
+                }
 
-            .download-buttons {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-            }
+                .stat-number {
+                    font-size: 2.5em;
+                }
 
-            .download-btn {
-                width: 100%;
-                justify-content: center;
-                padding: 16px 20px;
+                .section-header h2 {
+                    font-size: 2em;
+                }
             }
-
-            .download-btn .text {
-                text-align: center;
-            }
-
-            .phone-mockup {
-                width: 240px;
-                height: 500px;
-            }
-
-            .version-info {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-                padding: 14px 18px;
-                border-radius: 18px;
-            }
-        }
     </style>
 </head>
 
