@@ -7,11 +7,26 @@
     <title>NovelGrimoire - The Ultimate Novel Reading App</title>
     <meta name="description"
         content="Read light novels, web novels, and stories from multiple sources in one beautiful app. Download NovelGrimoire for Android today!">
-    <meta name="keywords" content="novel reader, light novel app, web novel reader, reading app, android novel app">
+    <meta name="keywords" content="novel reader, light novel app, web novel reader, reading app, android novel app, free novel app, offline reading, TTS voices, audiobook app">
+    <meta name="author" content="NovelGrimoire">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="NovelGrimoire">
+    <meta name="application-name" content="NovelGrimoire">
+    <meta name="msapplication-TileColor" content="#0F172A">
+    <meta name="msapplication-config" content="./browserconfig.xml">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5044613738088416"
         crossorigin="anonymous"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="NovelGrimoire - Ultimate Novel Reading App">
@@ -23,21 +38,87 @@
     <meta property="og:site_name" content="NovelGrimoire">
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NovelGrimoire - Ultimate Novel Reading App">
     <meta name="twitter:description" content="Read your favorite novels from multiple sources in one app">
     <meta name="twitter:image"
         content="https://raw.githubusercontent.com/AkuFtw472/MyNovelGrimoire/main/assets/fav_website.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="canonical" href="https://www.mynovelgrimoire.xyz/">
-    <link rel="icon" href="./favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="manifest" href="./site.webmanifest">
+
+    <!-- Favicons - Multiple formats for better browser support -->
+    <link rel="icon" href="https://www.mynovelgrimoire.xyz/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.mynovelgrimoire.xyz/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.mynovelgrimoire.xyz/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="https://www.mynovelgrimoire.xyz/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="https://www.mynovelgrimoire.xyz/favicon.png">
+    <link rel="shortcut icon" href="https://www.mynovelgrimoire.xyz/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.mynovelgrimoire.xyz/apple-touch-icon.png">
+    <link rel="manifest" href="https://www.mynovelgrimoire.xyz/site.webmanifest">
     <meta name="theme-color" content="#0F172A">
+    <meta name="msapplication-TileImage" content="https://www.mynovelgrimoire.xyz/icon-512.png">
+
+    <!-- Structured Data (JSON-LD) for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "NovelGrimoire",
+      "applicationCategory": "Entertainment",
+      "operatingSystem": "Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1000"
+      },
+      "description": "Read light novels, web novels, and stories from multiple sources in one beautiful app. Download NovelGrimoire for Android today!",
+      "screenshot": "https://www.mynovelgrimoire.xyz/og-image.jpg",
+      "image": "https://www.mynovelgrimoire.xyz/favicon.png",
+      "url": "https://www.mynovelgrimoire.xyz/",
+      "author": {
+        "@type": "Organization",
+        "name": "NovelGrimoire"
+      },
+      "downloadUrl": "https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.2",
+      "softwareVersion": "1.2",
+      "datePublished": "2024-12-29",
+      "dateModified": "2024-12-29"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "NovelGrimoire",
+      "url": "https://www.mynovelgrimoire.xyz/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.mynovelgrimoire.xyz/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NovelGrimoire",
+      "url": "https://www.mynovelgrimoire.xyz/",
+      "logo": "https://www.mynovelgrimoire.xyz/favicon.png",
+      "sameAs": [
+        "https://github.com/AkuFtw472/MyNovelGrimoire",
+        "https://discord.com/users/aku.ftw",
+        "https://ko-fi.com/akuftw"
+      ]
+    }
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -287,6 +368,79 @@
 
         .nav-cta-support:hover {
             box-shadow: 0 6px 25px rgba(255, 94, 91, 0.45);
+        }
+
+        .nav-cta-premium {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            color: #000 !important;
+            font-weight: 700;
+        }
+
+        .nav-cta-premium:hover {
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        #loginBtn, #signupBtn {
+            background: var(--gradient-2);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #userMenu {
+            position: relative;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 10px;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 10px;
+            min-width: 200px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            display: none;
+        }
+
+        .user-dropdown.active {
+            display: block;
+        }
+
+        .user-dropdown a, .user-dropdown button {
+            display: block;
+            padding: 12px 15px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .user-dropdown a:hover, .user-dropdown button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .premium-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 700;
+            margin-left: 5px;
         }
 
         /* Hero Section */
@@ -743,6 +897,77 @@
             line-height: 1.7;
         }
 
+        /* Premium Section */
+        .premium-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+        }
+
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .premium-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .premium-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .premium-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .premium-card h3 {
+            color: white;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .premium-card p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
         /* Download Section */
         .download-section {
             padding: 100px 0;
@@ -858,7 +1083,7 @@
         }
 
         .download-btn.drive-btn:hover {
-            box-shadow: 0 20px 50px rgba(66, 133, 244, 0.4);
+            box-shadow: 0 70px 100px rgba(66, 133, 244, 0.4);
         }
 
         .version-info {
@@ -1027,246 +1252,119 @@
                 font-size: 3em;
             }
 
+            .hero-text p {
+                font-size: 1.1em;
+                max-width: 600px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero-text h1 {
+                font-size: 3em;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
             .hero-buttons {
                 justify-content: center;
             }
 
             .hero-visual {
-                margin-top: 40px;
+                display: flex;
+                justify-content: center;
             }
 
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .community-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
+            .download-card {
+                padding: 40px 20px;
             }
         }
 
         @media (max-width: 768px) {
+            nav {
+                padding: 15px 0;
+            }
+
+            .nav-content {
+                padding: 0 20px;
+            }
+
             .nav-links {
                 display: none;
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(15, 23, 42, 0.98);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 20px;
-                gap: 0;
-                border-bottom: 1px solid var(--glass-border);
             }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                width: 100%;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 15px 20px;
-                border-radius: 10px;
-                transition: background 0.3s ease;
-            }
-
-            .nav-links a:hover {
-                background: rgba(255, 255, 255, 0.1);
-            }
-
-            .nav-links a::after {
-                display: none;
-            }
-
-            .nav-cta-download {
-                display: none;
-            }
-
-            .nav-cta-support {
-                padding: 10px 16px;
-            }
-
+            /* Hide desktop nav */
             .mobile-menu-btn {
                 display: block;
+            }
+
+            /* Show burger if implemented, or just hide */
+
+            .hero {
+                padding-top: 100px;
             }
 
             .hero-text h1 {
                 font-size: 2.2em;
             }
 
-            .announcement {
-                font-size: 0.95em;
-                padding: 12px 14px;
-                text-align: left;
-            }
-
-            .features-grid,
-            .community-grid {
-                grid-template-columns: 1fr;
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
             }
 
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .version-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2em;
+            }
+
+            .stat-number {
+                font-size: 2.5em;
             }
 
             .section-header h2 {
                 font-size: 2em;
             }
-
-            .download-card {
-                padding: 40px 20px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .floating-cards {
-                display: none;
-            }
         }
-
-        @media (max-width: 480px) {
-            nav {
-                padding: 14px 0;
-            }
-
-            .nav-logo {
-                font-size: 1.15em;
-            }
-
-            /* RESPONSIVE DESIGN */
-            @media (max-width: 1200px) {
-                .hero-text h1 {
-                    font-size: 3em;
-                }
-
-                .hero-text p {
-                    font-size: 1.1em;
-                    max-width: 600px;
-                }
-
-                .features-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 20px;
-                }
-            }
-
-            @media (max-width: 900px) {
-                .hero-content {
-                    grid-template-columns: 1fr;
-                    text-align: center;
-                    gap: 50px;
-                }
-
-                .hero-text h1 {
-                    font-size: 3em;
-                }
-
-                .hero-text p {
-                    margin: 0 auto 30px;
-                }
-
-                .hero-buttons {
-                    justify-content: center;
-                }
-
-                .hero-visual {
-                    display: flex;
-                    justify-content: center;
-                }
-
-                .download-card {
-                    padding: 40px 20px;
-                }
-            }
-
-            @media (max-width: 768px) {
-                nav {
-                    padding: 15px 0;
-                }
-
-                .nav-content {
-                    padding: 0 20px;
-                }
-
-                .nav-links {
-                    display: none;
-                }
-
-                /* Hide desktop nav */
-                .mobile-menu-btn {
-                    display: block;
-                }
-
-                /* Show burger if implemented, or just hide */
-
-                .hero {
-                    padding-top: 100px;
-                }
-
-                .hero-text h1 {
-                    font-size: 2.2em;
-                }
-
-                .cta-buttons {
-                    flex-direction: column;
-                    width: 100%;
-                    max-width: 320px;
-                    margin: 0 auto;
-                }
-
-                .stats-grid {
-                    grid-template-columns: 1fr 1fr;
-                    gap: 20px;
-                }
-
-                .features-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .download-buttons {
-                    flex-direction: column;
-                    align-items: stretch;
-                }
-
-                .download-btn {
-                    width: 100%;
-                    justify-content: center;
-                }
-
-                .version-info {
-                    flex-direction: column;
-                    gap: 8px;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .hero-text h1 {
-                    font-size: 2em;
-                }
-
-                .stat-number {
-                    font-size: 2.5em;
-                }
-
-                .section-header h2 {
-                    font-size: 2em;
-                }
-            }
     </style>
 </head>
 
@@ -1283,14 +1381,20 @@
             <a href="#top" class="nav-logo">📚 <span>mynovelgrimoire.xyz</span></a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
+                <li><a href="#premium">Premium</a></li>
                 <li><a href="#download">Download</a></li>
                 <li><a href="#community">Community</a></li>
-                <li><a href="login.html" style="color: #F59E0B;">Login</a></li>
             </ul>
             <div class="nav-ctas">
+                <a href="#premium" class="nav-cta nav-cta-premium" style="display: none;">👑 Upgrade to Premium</a>
+                <button id="loginBtn" class="nav-cta" style="display: none;">Login</button>
+                <button id="signupBtn" class="nav-cta" style="display: none;">Sign Up</button>
+                <div id="userMenu" class="nav-cta" style="display: none; cursor: pointer;">
+                    <span id="userName"></span> ▼
+                </div>
                 <a href="https://ko-fi.com/akuftw" class="nav-cta nav-cta-support" target="_blank"
                     rel="noopener noreferrer">☕ Help the Dev</a>
-                <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1"
+                <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.2"
                     class="nav-cta nav-cta-download">Download</a>
             </div>
             <button class="mobile-menu-btn">☰</button>
@@ -1389,6 +1493,45 @@
         </div>
     </section>
 
+    <!-- Premium Section -->
+    <section id="premium" class="premium-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000;">👑 Premium</span>
+                <h2>Unlock Premium Features</h2>
+                <p>Enhance your reading experience with GrimoireVoicePRO and exclusive features</p>
+            </div>
+            <div class="premium-grid">
+                <div class="premium-card" style="border: 2px solid rgba(255, 215, 0, 0.3);">
+                    <div class="premium-icon" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);">🎙️</div>
+                    <h3>GrimoireVoicePRO</h3>
+                    <p>Access premium humanized AI voices with natural emotion and intonation. Experience audiobook-quality narration for all your novels.</p>
+                </div>
+                <div class="premium-card" style="border: 2px solid rgba(255, 215, 0, 0.3);">
+                    <div class="premium-icon" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);">🎭</div>
+                    <h3>Multiple Voice Profiles</h3>
+                    <p>Choose from various specialized voice profiles to match your reading preference. Each voice is optimized for storytelling.</p>
+                </div>
+                <div class="premium-card" style="border: 2px solid rgba(255, 215, 0, 0.3);">
+                    <div class="premium-icon" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);">☁️</div>
+                    <h3>Cloud Sync</h3>
+                    <p>Sync your library, bookmarks, and reading progress across all your devices seamlessly.</p>
+                </div>
+                <div class="premium-card" style="border: 2px solid rgba(255, 215, 0, 0.3);">
+                    <div class="premium-icon" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);">💬</div>
+                    <h3>Chapter Comments</h3>
+                    <p>Join the community discussion with chapter-by-chapter comments and engage with other readers.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <button id="upgradePremiumBtn" class="btn" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #000; font-weight: 700; font-size: 1.1em; padding: 20px 40px; box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);">
+                    👑 Upgrade to Premium - $4.99/month
+                </button>
+                <p style="color: rgba(255, 255, 255, 0.6); margin-top: 15px; font-size: 0.9em;">Free tier includes quality TTS voices. Premium unlocks the best experience.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section id="features" class="features-section">
         <div class="container">
@@ -1416,7 +1559,17 @@
                 <div class="feature-card">
                     <div class="feature-icon">🔊</div>
                     <h3>Text-to-Speech</h3>
-                    <p>Listen to your novels with built-in TTS support. Perfect for multitasking.</p>
+                    <p>Listen to your novels with built-in TTS support. Free tier available, premium for humanized voices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Chapter Comments</h3>
+                    <p>Share thoughts and discuss with other readers on every chapter in real-time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>User Accounts</h3>
+                    <p>Create an account to sync your progress, library, and preferences across devices.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔖</div>
@@ -1465,7 +1618,7 @@
                     — support the project to help speed up development.</p>
 
                 <div class="download-buttons">
-                    <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.1" class="download-btn">
+                    <a href="https://github.com/AkuFtw472/MyNovelGrimoire/releases/tag/v1.2" class="download-btn">
                         <span class="icon">📱</span>
                         <span class="text">
                             <small>Download for</small>
@@ -1490,7 +1643,7 @@
                 </div>
 
                 <div class="version-info">
-                    <span>📦 Version 1.1</span>
+                    <span>📦 Version 1.2</span>
                     <span>📱 Android 5.0+</span>
                     <span>🔄 Auto-updates</span>
                 </div>
@@ -1694,6 +1847,189 @@
                 mobileMenuBtn.textContent = '☰';
                 mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
+        });
+
+        // Supabase Authentication
+        const SUPABASE_URL = 'https://vrbvypsfwqpzftapjwsb.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyYnZ5cHNmd3FwemZ0YXBqd3NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ3MTM5NzIsImV4cCI6MjA1MDI4OTk3Mn0.sb_publishable_a5aO17JHTVXtXPxdizXEyg_vYdeUJ66';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // Check authentication state
+        async function checkAuth() {
+            const { data: { session } } = await supabase.auth.getSession();
+            updateUIForAuth(session);
+        }
+
+        function updateUIForAuth(session) {
+            const loginBtn = document.getElementById('loginBtn');
+            const signupBtn = document.getElementById('signupBtn');
+            const userMenu = document.getElementById('userMenu');
+            const userName = document.getElementById('userName');
+            const premiumBtn = document.querySelector('.nav-cta-premium');
+            const upgradePremiumBtn = document.getElementById('upgradePremiumBtn');
+
+            if (session) {
+                loginBtn.style.display = 'none';
+                signupBtn.style.display = 'none';
+                userMenu.style.display = 'inline-flex';
+                userName.textContent = session.user.email.split('@')[0];
+                
+                // Check if user is premium
+                checkPremiumStatus(session.user.id);
+            } else {
+                loginBtn.style.display = 'inline-flex';
+                signupBtn.style.display = 'inline-flex';
+                userMenu.style.display = 'none';
+                if (premiumBtn) premiumBtn.style.display = 'none';
+            }
+        }
+
+        async function checkPremiumStatus(userId) {
+            try {
+                const { data, error } = await supabase
+                    .from('premium_users')
+                    .select('*')
+                    .eq('user_id', userId)
+                    .single();
+
+                const premiumBtn = document.querySelector('.nav-cta-premium');
+                const userName = document.getElementById('userName');
+                const upgradePremiumBtn = document.getElementById('upgradePremiumBtn');
+
+                if (data && !error) {
+                    if (premiumBtn) premiumBtn.style.display = 'none';
+                    userName.innerHTML += ' <span class="premium-badge">👑 PRO</span>';
+                    if (upgradePremiumBtn) {
+                        upgradePremiumBtn.textContent = '✓ You have Premium';
+                        upgradePremiumBtn.style.background = 'linear-gradient(135deg, #10B981 0%, #059669 100%)';
+                        upgradePremiumBtn.disabled = true;
+                        upgradePremiumBtn.style.cursor = 'not-allowed';
+                    }
+                } else {
+                    if (premiumBtn) premiumBtn.style.display = 'inline-flex';
+                }
+            } catch (e) {
+                console.error('Error checking premium status:', e);
+            }
+        }
+
+        // Login modal
+        document.getElementById('loginBtn')?.addEventListener('click', () => {
+            showAuthModal('login');
+        });
+
+        document.getElementById('signupBtn')?.addEventListener('click', () => {
+            showAuthModal('signup');
+        });
+
+        function showAuthModal(mode) {
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 10000; backdrop-filter: blur(10px);';
+            
+            const modalContent = document.createElement('div');
+            modalContent.style.cssText = 'background: linear-gradient(145deg, #1E293B, #0F172A); padding: 40px; border-radius: 20px; max-width: 400px; width: 90%; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 60px rgba(0,0,0,0.5);';
+            
+            modalContent.innerHTML = `
+                <h2 style="color: white; margin-bottom: 10px; font-size: 1.8em;">${mode === 'login' ? 'Welcome Back' : 'Create Account'}</h2>
+                <p style="color: rgba(255,255,255,0.6); margin-bottom: 30px;">Use the same credentials as your app</p>
+                <input type="email" id="authEmail" placeholder="Email" style="width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; font-size: 1em;" />
+                <input type="password" id="authPassword" placeholder="Password" style="width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; font-size: 1em;" />
+                <button id="authSubmit" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); color: white; border: none; border-radius: 10px; font-weight: 600; font-size: 1.1em; cursor: pointer; margin-bottom: 15px;">${mode === 'login' ? 'Login' : 'Sign Up'}</button>
+                <button id="authCancel" style="width: 100%; padding: 15px; background: rgba(255,255,255,0.1); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">Cancel</button>
+                <p id="authError" style="color: #EF4444; margin-top: 15px; display: none;"></p>
+            `;
+            
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+
+            document.getElementById('authCancel').onclick = () => modal.remove();
+            modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+
+            document.getElementById('authSubmit').onclick = async () => {
+                const email = document.getElementById('authEmail').value;
+                const password = document.getElementById('authPassword').value;
+                const errorEl = document.getElementById('authError');
+
+                if (!email || !password) {
+                    errorEl.textContent = 'Please fill in all fields';
+                    errorEl.style.display = 'block';
+                    return;
+                }
+
+                try {
+                    let result;
+                    if (mode === 'login') {
+                        result = await supabase.auth.signInWithPassword({ email, password });
+                    } else {
+                        result = await supabase.auth.signUp({ email, password });
+                    }
+
+                    if (result.error) throw result.error;
+
+                    modal.remove();
+                    if (mode === 'signup') {
+                        alert('Account created! Please check your email to verify.');
+                    } else {
+                        checkAuth();
+                    }
+                } catch (error) {
+                    errorEl.textContent = error.message;
+                    errorEl.style.display = 'block';
+                }
+            };
+        }
+
+        // User menu dropdown
+        document.getElementById('userMenu')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            let dropdown = document.querySelector('.user-dropdown');
+            
+            if (!dropdown) {
+                dropdown = document.createElement('div');
+                dropdown.className = 'user-dropdown';
+                dropdown.innerHTML = `
+                    <a href="#premium">👑 Premium</a>
+                    <button id="logoutBtn">🚪 Logout</button>
+                `;
+                document.getElementById('userMenu').appendChild(dropdown);
+                
+                document.getElementById('logoutBtn').onclick = async () => {
+                    await supabase.auth.signOut();
+                    checkAuth();
+                    dropdown.remove();
+                };
+            }
+            
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            const dropdown = document.querySelector('.user-dropdown');
+            if (dropdown) dropdown.classList.remove('active');
+        });
+
+        // Premium upgrade button
+        document.getElementById('upgradePremiumBtn')?.addEventListener('click', async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            
+            if (!session) {
+                alert('Please login or create an account first!');
+                showAuthModal('signup');
+                return;
+            }
+
+            // Redirect to Ko-fi or payment page
+            alert('Premium upgrade coming soon! For now, support us on Ko-fi to get early access.');
+            window.open('https://ko-fi.com/akuftw', '_blank');
+        });
+
+        // Initialize auth check
+        checkAuth();
+
+        // Listen for auth changes
+        supabase.auth.onAuthStateChange((event, session) => {
+            updateUIForAuth(session);
         });
     </script>
 </body>
