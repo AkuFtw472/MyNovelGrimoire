@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>NovelGrimoire - The Ultimate Novel Reading App</title>
     <meta name="description"
         content="Read light novels, web novels, and stories from multiple sources in one beautiful app. Download NovelGrimoire for Android today!">
@@ -152,6 +152,8 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         body {
@@ -160,6 +162,8 @@
             color: var(--dark);
             background: var(--dark);
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
         }
 
         a {
@@ -257,6 +261,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         #top {
@@ -297,6 +303,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            white-space: nowrap;
         }
 
         .nav-logo span {
@@ -354,6 +361,7 @@
             display: flex;
             gap: 12px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-cta-support {
@@ -1292,53 +1300,118 @@
             }
         }
 
+        @media (max-width: 1200px) {
+            .nav-ctas {
+                gap: 8px;
+            }
+            
+            .nav-cta {
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .premium-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
-                padding: 15px 0;
+                padding: 10px 0;
             }
 
             .nav-content {
-                padding: 0 20px;
+                padding: 0 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-logo {
+                font-size: 1.2em;
             }
 
             .nav-links {
                 display: none;
             }
 
-            /* Hide desktop nav */
+            .nav-ctas {
+                width: 100%;
+                justify-content: center;
+                order: 3;
+                gap: 6px;
+            }
+
+            .nav-cta {
+                padding: 8px 12px;
+                font-size: 0.75em;
+                white-space: nowrap;
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
 
-            /* Show burger if implemented, or just hide */
-
             .hero {
-                padding-top: 100px;
+                padding: 120px 0 60px;
+                min-height: auto;
             }
 
             .hero-text h1 {
-                font-size: 2.2em;
+                font-size: 2em;
+                line-height: 1.2;
             }
 
-            .cta-buttons {
+            .hero-text p {
+                font-size: 1em;
+            }
+
+            .hero-buttons {
                 flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
                 width: 100%;
-                max-width: 320px;
-                margin: 0 auto;
+                justify-content: center;
+                padding: 14px 24px;
+                font-size: 0.95em;
             }
 
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                gap: 15px;
+            }
+
+            .stat-card {
+                padding: 20px 15px;
             }
 
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .premium-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card, .premium-card {
+                padding: 30px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 2em;
             }
 
             .download-buttons {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 15px;
             }
 
             .download-btn {
@@ -1346,23 +1419,113 @@
                 justify-content: center;
             }
 
+            .download-card {
+                padding: 40px 20px;
+            }
+
             .version-info {
                 flex-direction: column;
                 gap: 8px;
             }
+
+            .community-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .community-card {
+                padding: 25px 15px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .phone-mockup {
+                width: 220px;
+                height: 460px;
+            }
+
+            .floating-cards {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .nav-logo {
+                font-size: 1em;
+            }
+
+            .nav-cta {
+                padding: 6px 10px;
+                font-size: 0.7em;
+            }
+
             .hero-text h1 {
-                font-size: 2em;
+                font-size: 1.75em;
+            }
+
+            .hero-text p {
+                font-size: 0.95em;
+            }
+
+            .announcement {
+                font-size: 0.85em;
+                padding: 10px 14px;
             }
 
             .stat-number {
-                font-size: 2.5em;
+                font-size: 2em;
+            }
+
+            .stat-label {
+                font-size: 0.85em;
             }
 
             .section-header h2 {
-                font-size: 2em;
+                font-size: 1.75em;
+            }
+
+            .section-header p {
+                font-size: 0.95em;
+            }
+
+            .feature-icon, .premium-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+
+            .feature-card h3, .premium-card h3 {
+                font-size: 1.1em;
+            }
+
+            .feature-card p, .premium-card p {
+                font-size: 0.9em;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phone-mockup {
+                width: 180px;
+                height: 380px;
             }
         }
     </style>
@@ -1387,8 +1550,8 @@
             </ul>
             <div class="nav-ctas">
                 <a href="#premium" class="nav-cta nav-cta-premium" style="display: none;">👑 Upgrade to Premium</a>
-                <button id="loginBtn" class="nav-cta" style="display: none;">Login</button>
-                <button id="signupBtn" class="nav-cta" style="display: none;">Sign Up</button>
+                <button id="loginBtn" class="nav-cta">Login</button>
+                <button id="signupBtn" class="nav-cta">Sign Up</button>
                 <div id="userMenu" class="nav-cta" style="display: none; cursor: pointer;">
                     <span id="userName"></span> ▼
                 </div>
